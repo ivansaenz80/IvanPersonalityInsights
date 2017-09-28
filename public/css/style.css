@@ -8,14 +8,16 @@
 
 .btn {
   height: 2.5em;
-  padding: 0em;
-  margin-bottom: 0em;
+  background-color: #F65113;
+  border-radius: 12px;
+  padding: 10px 24px;
 }
-.btn-block {
-  margin-bottom: 0em;
-}
-.content {
-  margin-bottom: 0px;
+
+.btn:hover,
+.btn:focus {
+  text-decoration: none;
+  color: #fff;
+  background-color: #d74108;
 }
 
 .wordsCount {
