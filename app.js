@@ -21,6 +21,8 @@ var express    = require('express'),
   watson       = require('watson-developer-cloud'),
   extend       = require('util')._extend,
   i18n         = require('i18next');
+  
+  const request = require('request-promise');
 
 //i18n settings
 require('./config/i18n')(app);
@@ -48,6 +50,26 @@ app.post('/api/profile', function(req, res, next) {
     else
       return res.json(profile);
   });
+});
+
+app.get('/consultarPosts',function(req,res,next){
+	//return res.json({mensaje: 'voy a llamar a facebool jaja'});	
+	// you need permission for most of these fields
+  const userFieldSet = 'feed';
+
+  const options = {
+    method: 'GET',
+    //uri: `https://graph.facebook.com/v2.10/${req.params.id}`,
+    uri: 'https://graph.facebook.com/v2.10/'+req.params.usuario,
+    qs: {
+      access_token: req.params.tokenAcceso,
+      fields: userFieldSet
+    }
+  };
+  request(options)
+    .then(fbRes => {
+      res.json(fbRes);
+    })
 });
 
 // error-handler settings

@@ -83,7 +83,7 @@ var i18nTranslatorFactory = (function () {
 var i18nProvider = (function(locale) {
 
   var self = {
-    locale : 'en'
+    locale : 'es-EC'
   };
 
   /**
@@ -91,7 +91,7 @@ var i18nProvider = (function(locale) {
    * @param locale A locale string (format: ll-CC).
    */
   self.setLocale = function (locale) {
-    this.locale = locale;
+    this.locale = 'es-EC';
   };
 
   /**
@@ -99,7 +99,7 @@ var i18nProvider = (function(locale) {
    * @param locale A locale string (format: ll-CC).
    */
   self.init = function (locale) {
-    this.setLocale(locale);
+    this.setLocale('es-EC');
   };
 
   /**
@@ -168,7 +168,7 @@ var i18nProvider = (function(locale) {
     });
   };
 
-  self.init(locale);
+  self.init('es-EC');
 
   return self;
 
